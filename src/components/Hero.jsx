@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Hero() {
   // Fungsi untuk scroll ke section berikutnya
@@ -6,6 +7,25 @@ export default function Hero() {
     const nextSection = document.getElementById("services"); // ubah ID sesuai section berikutnya
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleScrollTo = (id) => {
+    if (location.pathname !== "/") {
+      // kalau bukan di halaman home, pindah dulu ke home
+      navigate("/");
+
+      // kasih jeda sedikit agar halaman home sempat render dulu
+      setTimeout(() => {
+        const section = document.querySelector(id);
+        if (section) section.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      // kalau sudah di home, langsung scroll
+      const section = document.querySelector(id);
+      if (section) section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -30,23 +50,31 @@ export default function Hero() {
       {/* Konten Utama */}
       <div className="relative z-10 pl-[200px] pr-4 max-w-3xl w-full">
         <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-          Rapidly
+          Nocturnity
           <br />
-          Adaptive
+          Creative
         </h1>
 
         <p className="text-lg md:text-xl text-white mb-8 max-w-xl leading-relaxed drop-shadow-md">
-          Percepatan teknologi mungkin terasa menakutkan bagimu, tapi tidak bagi
-          kami. Bersama, kita bisa mengubahnya menjadi keuntungan.
+          Segalanya dalam meningkatkan keuntungan dan popularitas, perlu adanya
+          unsur pemasaran yang kreatif, inovatif, tapi profesional. Dengan
+          Nocturnity, kita bisa membuat sebuah wajah untuk meraih popularitas
+          dan keuntungan.
         </p>
 
         {/* Tombol CTA */}
         <div className="flex flex-col sm:flex-row gap-4 items-start">
-          <button className="px-8 py-4 bg-white text-purple-600 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <button
+            onClick={() => handleScrollTo("#services")}
+            className="px-8 py-4 bg-white text-purple-600 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
             Mulai Sekarang
           </button>
 
-          <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+          <button
+            onClick={() => handleScrollTo("#portfolio")}
+            className="px-8 py-4 border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105"
+          >
             Pelajari Lebih Lanjut
           </button>
         </div>

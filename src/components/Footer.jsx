@@ -46,7 +46,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-2">
-            © {new Date().getFullYear()} by Nocturnity Digital Indonesia
+            © {new Date().getFullYear()} by Nocturnity Creative
           </p>
         </div>
       </div>
