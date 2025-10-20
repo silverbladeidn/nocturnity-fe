@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Logo dan kontak */}
         <div className="flex items-center gap-4">
           <img
-            src="/logo.png" // ganti dengan logo kamu di public/
+            src="/NocturnityLogo.png" // ganti dengan logo kamu di public/
             alt="Nocturnity Logo"
             className="h-10 object-contain"
           />
