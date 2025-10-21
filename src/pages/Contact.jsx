@@ -4,6 +4,29 @@ import "../components/animation.css"; // animasi blob & fade
 import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const message = e.target[2].value;
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert("Pesan berhasil dikirim!");
+      e.target.reset();
+    } else {
+      alert("Gagal mengirim pesan.");
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -73,7 +96,7 @@ const Contact = () => {
 
         {/* Form Kontak */}
         <form
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
           className="w-full lg:w-1/2 bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-2xl animate-fadeSlideUp"
         >
           <div className="mt-4 md:mt-6">
