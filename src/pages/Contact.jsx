@@ -113,7 +113,7 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="w-full md:w-auto mt-6 md:mt-8 px-6 md:px-8 py-3 bg-blue-700 text-black font-semibold rounded-full hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-300/30 text-sm md:text-base"
+            className="w-full md:w-auto mt-6 md:mt-8 px-6 md:px-8 py-3 bg-blue-700 text-white font-semibold rounded-full hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-300/30 text-sm md:text-base"
           >
             Kirim Pesamnu
           </button>
