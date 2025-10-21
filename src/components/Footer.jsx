@@ -1,51 +1,78 @@
 import React from "react";
-import { FaLinkedin, FaInstagram, FaTiktok } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaTiktok,
+  FaWhatsapp,
+  FaEnvelope,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2b2c2f] text-gray-300 py-6 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-6">
+    <footer className="bg-[#2b2c2f] text-gray-300 py-6 sm:py-8 px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-6 md:gap-8">
         {/* Logo dan kontak */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left">
           <img
-            src="/NocturnityLogo.png" // ganti dengan logo kamu di public/
+            src="/NocturnityLogo.png"
             alt="Nocturnity Logo"
-            className="h-10 object-contain"
+            className="h-10 sm:h-12 object-contain"
           />
-          <div className="text-sm leading-relaxed">
-            <p>Contact Us: +62 21 7248002 | Fax: +62 21 7208782</p>
-            <p>Email: bd@nocturnity.id</p>
+          <div className="text-xs sm:text-sm leading-relaxed">
+            <p className="mb-1 flex items-center gap-2">Hubungi Kami :</p>
+            <p className="mb-1 flex items-center gap-2">WhatsApp :</p>
+            <p className="mb-1 flex items-center gap-2">
+              <FaWhatsapp className="w-7 h-7 sm:w-7 sm:h-7" />
+              <a
+                href="https://wa.me/6285189953855?text=Halo,%20saya%20ingin%20bertanya%20tentang%20desain"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium hover:text-green-600 transition-colors"
+              >
+                +62 851-8995-3855
+              </a>{" "}
+            </p>
+            <p className="mb-1 flex items-center gap-2">Email : </p>
+            <p className="mb-1 flex items-center gap-2">
+              <FaEnvelope className="w-7 h-7 sm:w-7 sm:h-7" />
+              <a
+                href="mailto:nocturnity.creative@gmail.com"
+                className="text-purple-400 hover:text-purple-300 transition-colors"
+              >
+                nocturnity.creative@gmail.com
+              </a>
+            </p>
           </div>
         </div>
 
         {/* Sosial media */}
-        <div className="flex flex-col items-center md:items-end gap-2">
-          <div className="flex gap-4 text-lg">
+        <div className="flex flex-col items-center md:items-end gap-3">
+          <div className="flex gap-4 sm:gap-6">
             <a
               href="#"
-              className="hover:text-white transition-colors"
+              className="hover:text-white hover:scale-110 transition-all duration-200"
               aria-label="LinkedIn"
             >
-              <FaLinkedin />
+              <FaLinkedin className="w-7 h-7 sm:w-8 sm:h-8" />
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.instagram.com/nocturnitycreative/"
-              className="hover:text-white transition-colors"
+              className="hover:text-white hover:scale-110 transition-all duration-200"
               aria-label="Instagram"
             >
-              <FaInstagram />
+              <FaInstagram className="w-7 h-7 sm:w-8 sm:h-8" />
             </a>
             <a
               href="#"
-              className="hover:text-white transition-colors"
+              className="hover:text-white hover:scale-110 transition-all duration-200"
               aria-label="TikTok"
             >
-              <FaTiktok />
+              <FaTiktok className="w-7 h-7 sm:w-8 sm:h-8" />
             </a>
           </div>
-          <p className="text-xs text-gray-400 mt-2">
+          <p className="text-xs sm:text-sm text-gray-400 text-center">
             © {new Date().getFullYear()} by Nocturnity Creative
           </p>
         </div>

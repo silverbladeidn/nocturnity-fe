@@ -32,62 +32,61 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center items-start text-start overflow-hidden pt-16"
+      className="relative min-h-screen flex flex-col justify-center items-center lg:items-start text-center lg:text-start overflow-hidden pt-20 pb-20 md:py-24 px-4 sm:px-6 lg:px-8"
     >
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-blue-500 -z-10"></div>
+      <div className="absolute inset-0 bg-blue-700 -z-10"></div>
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Lingkaran Latar Animasi */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-red-500 rounded-full filter blur-3xl opacity-100 animate-blob"></div>
+        {/* Lingkaran Latar Animasi - Responsive */}
+        <div className="absolute top-10 left-4 w-64 h-64 md:top-20 md:left-10 md:w-96 md:h-96 bg-red-500 rounded-full filter blur-3xl opacity-100 animate-blob"></div>
 
-        <div className="absolute top-40 right-10 w-96 h-96 bg-yellow-400 rounded-full filter blur-3xl opacity-100 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-20 right-4 w-64 h-64 md:top-40 md:right-10 md:w-96 md:h-96 bg-yellow-400 rounded-full filter blur-3xl opacity-100 animate-blob animation-delay-2000"></div>
 
-        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-400 rounded-full filter blur-3xl opacity-100 animate-blob animation-delay-4000"></div>
+        <div className="absolute -bottom-8 left-8 w-64 h-64 md:-bottom-8 md:left-20 md:w-96 md:h-96 bg-blue-400 rounded-full filter blur-3xl opacity-100 animate-blob animation-delay-4000"></div>
       </div>
 
       {/* Konten Utama */}
-      <div className="relative z-10 pl-[200px] pr-4 max-w-3xl w-full">
-        <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+      <div className="relative z-10 lg:pl-16 xl:pl-[200px] max-w-3xl w-full mb-8 md:mb-0">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg">
           Nocturnity
           <br />
           Creative
         </h1>
 
-        <p className="text-lg md:text-xl text-white mb-8 max-w-xl leading-relaxed drop-shadow-md">
-          Segalanya dalam meningkatkan keuntungan dan popularitas, perlu adanya
-          unsur pemasaran yang kreatif, inovatif, tapi profesional. Dengan
-          Nocturnity, kita bisa membuat sebuah wajah untuk meraih popularitas
-          dan keuntungan.
+        <p className="text-base sm:text-lg md:text-xl text-white mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
+          Buat kami, desain bukan cuma soal estetika. Desain adalah cara brand
+          berbicara, membangun citra, dan mewakilkan audiensnya melalui pesan
+          komunikasi.
         </p>
 
         {/* Tombol CTA */}
-        <div className="flex flex-col sm:flex-row gap-4 items-start">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
           <button
             onClick={() => handleScrollTo("#services")}
-            className="px-8 py-4 bg-white text-purple-600 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-blue-600 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Mulai Sekarang
           </button>
 
           <button
             onClick={() => handleScrollTo("#portfolio")}
-            className="px-8 py-4 border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105"
+            className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-white text-white rounded-lg font-bold text-base sm:text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
           >
             Pelajari Lebih Lanjut
           </button>
         </div>
       </div>
 
-      {/* Scroll Indicator (ikon panah) */}
+      {/* Scroll Indicator (ikon panah) - Diperbaiki posisinya */}
       <button
         onClick={handleScroll}
         aria-label="Scroll ke bawah"
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white"
+        className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white"
       >
         <svg
-          className="w-8 h-8"
+          className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

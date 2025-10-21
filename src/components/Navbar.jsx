@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleScrollTo = (id) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false); // Tutup menu mobile setelah klik
+    }
     if (location.pathname !== "/") {
       // kalau bukan di halaman home, pindah dulu ke home
       navigate("/");
@@ -24,26 +31,28 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-md text-white z-50 shadow-md">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4">
         <button
           onClick={() => handleScrollTo("#hero")}
           className="flex items-center space-x-3 group focus:outline-none"
         >
-          <img
-            src="/NocturnityLogo.png" // ganti dengan logo di public/
-            alt="Nocturnity Logo"
-            className="h-10 object-contain"
-          />
-          <h1 className="text-2xl font-bold text-purple-300 group-hover:text-purple-200 transition">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center">
+            <img
+              src="/NocturnityLogo.png" // ganti dengan logo di public/
+              alt="Nocturnity Logo"
+              className="h-10 object-contain"
+            />
+          </div>
+          <h1 className="text-2xl font-bold text-blue-300 group-hover:text-blue-200 transition">
             Nocturnity
           </h1>
         </button>
-        <ul className="flex space-x-8 font-medium">
-          <li></li>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-6 lg:space-x-8 font-medium items-center">
           <li>
             <button
               onClick={() => handleScrollTo("#services")}
-              className="hover:text-purple-400 transition focus:outline-none focus:ring-0 focus-visible:ring-0 ring-0 outline-none"
+              className="hover:text-blue-400 transition focus:outline-none focus:ring-0 focus-visible:ring-0 ring-0 outline-none"
             >
               Layanan
             </button>
@@ -51,7 +60,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={() => handleScrollTo("#portfolio")}
-              className="hover:text-purple-400 transition focus:outline-none focus:ring-0 focus-visible:ring-0 ring-0 outline-none"
+              className="hover:text-blue-400 transition focus:outline-none focus:ring-0 focus-visible:ring-0 ring-0 outline-none"
             >
               Portfolio
             </button>
@@ -59,13 +68,52 @@ const Navbar = () => {
           <li>
             <Link
               to="/contact-us"
-              className="px-8 py-3 bg-purple-600 rounded-full font-semibold hover:bg-purple-700 hover:text-white transition-colors focus:outline-none focus:ring-0 focus-visible:ring-0 ring-0 outline-none"
+              className="px-6 lg:px-8 py-2 lg:py-3 bg-blue-600 rounded-full font-semibold hover:bg-blue-700 hover:text-white transition-colors focus:outline-none"
             >
               Kontak Kami
             </Link>
           </li>
         </ul>
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden focus:outline-none p-2 hover:bg-white/10 rounded-lg transition"
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+      {/* Mobile Menu Dropdown */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-white/10">
+          <ul className="flex flex-col space-y-1 px-4 py-4 font-medium">
+            <li>
+              <button
+                onClick={() => handleScrollTo("#services")}
+                className="block w-full text-left px-4 py-3 rounded-lg hover:bg-white/10 hover:text-blue-400 transition focus:outline-none"
+              >
+                Layanan
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleScrollTo("#portfolio")}
+                className="block w-full text-left px-4 py-3 rounded-lg hover:bg-white/10 hover:text-blue-400 transition focus:outline-none"
+              >
+                Portfolio
+              </button>
+            </li>
+            <li className="mt-2">
+              <Link
+                to="/contact-us"
+                className="flex items-center justify-center w-full px-4 py-3 bg-blue-600 rounded-lg font-semibold hover:bg-blue-700  hover:text-white transition-colors focus:outline-none text-center"
+              >
+                Kontak Kami
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };

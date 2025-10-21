@@ -1,47 +1,72 @@
 import React from "react";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 import "../components/animation.css"; // animasi blob & fade
+import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <section id="contact" className="relative py-24 text-white overflow-hidden">
+    <section
+      id="contact"
+      className="relative pt-20 pb-12 md:py-24 text-white overflow-hidden"
+    >
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-blue-500 -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 -z-10"></div>
 
       {/* Animated Blobs */}
       <div className="absolute inset-0 overflow-hidden -z-10">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-130 animate-blob"></div>
-        <div className="absolute top-20 right-40 w-96 h-96 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl opacity-80 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-130 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-10 left-4 w-64 h-64 md:top-20 md:left-10 md:w-96 md:h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-130 animate-blob"></div>
+        <div className="absolute top-10 right-10 w-64 h-64 md:top-20 md:right-40 md:w-96 md:h-96 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl opacity-80 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-8 w-64 h-64 md:-bottom-8 md:left-20 md:w-96 md:h-96 bg-green-400 rounded-full mix-blend-multiply filter blur-3xl opacity-130 animate-blob animation-delay-4000"></div>
       </div>
 
       {/* Konten Utama */}
-      <div className="max-w-6xl mx-auto px-6 md:grid-cols-2 gap-16 relative flex items-center ">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
         {/* Informasi Kontak */}
-        <div className="animate-fadeSlideUp pl-24">
-          <h2 className="text-5xl text-start font-bold mb-8">Contact</h2>
+        <div className="animate-fadeSlideUp w-full lg:w-1/2 lg:pl-8 xl:pl-24">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-center lg:text-start font-bold mb-6 md:mb-8">
+            Kontak Kami
+          </h2>
 
-          <div className="space-y-6 text-gray-100">
-            <div className="flex items-start text-start gap-4">
-              <MapPin size={28} className="text-purple-300 mt-1" />
-              <p>
+          <div className="space-y-4 md:space-y-6 text-gray-100">
+            <div className="flex items-start text-start  gap-3 md:gap-4">
+              <MapPin
+                size={24}
+                className="text-blue-300 mt-1 flex-shrink-0 w-6 h-6 md:w-7 md:h-7"
+              />
+              <p className="text-sm md:text-base">
                 Gg. Butet, Jl. Kebagusan Raya, Kebagusan, Pasar Minggu, Jakarta
                 Selatan
               </p>
             </div>
 
-            <div className="flex items-start text-start gap-4">
-              <Phone size={24} className="text-purple-300 mt-1" />
-              <div>
-                <p>No. Telp Utama: +62 21 7248002</p>
-                <p>No. Telp Hunting: +62 21 7208793</p>
-                <p>No. Fax: +62 21 7208782</p>
+            <div className="flex items-start text-start gap-3 md:gap-4">
+              <FaWhatsapp
+                size={20}
+                className="text-blue-300 mt-1 flex-shrink-0 w-5 h-5 md:w-6 md:h-6"
+              />
+              <div className="text-sm md:text-base">
+                <a
+                  href="https://wa.me/6285189953855?text=Halo,%20saya%20ingin%20bertanya%20tentang%20desain"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:text-black transition-colors"
+                >
+                  +62 851-8995-3855
+                </a>{" "}
               </div>
             </div>
 
-            <div className="flex items-start text-start gap-4">
-              <Mail size={24} className="text-purple-300 mt-1" />
-              <p>bd@h-digital.id</p>
+            <div className="flex items-start text-start gap-3 md:gap-4">
+              <Mail
+                size={20}
+                className="text-blue-300 mt-1 flex-shrink-0 w-5 h-5 md:w-6 md:h-6"
+              />
+              <a
+                href="mailto:nocturnity.creative@gmail.com"
+                className="text-sm md:text-base hover:text-black transition-colors"
+              >
+                nocturnity.creative@gmail.com
+              </a>
             </div>
           </div>
         </div>
@@ -49,58 +74,48 @@ const Contact = () => {
         {/* Form Kontak */}
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl animate-fadeSlideUp text-start"
+          className="w-full lg:w-1/2 bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-2xl animate-fadeSlideUp"
         >
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="mt-4 md:mt-6">
             <div>
-              <label className="block mb-2 text-black font-semibold text-start text-sm">
-                First Name
+              <label className="block mb-2 text-black font-semibold text-sm text-start md:text-base">
+                Nama Lengkap Anda
               </label>
               <input
                 type="text"
-                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 text-black placeholder-black"
-                placeholder="Your first name"
-              />
-            </div>
-            <div>
-              <label className="block mb-2 text-black font-semibold text-start text-sm">
-                Last Name
-              </label>
-              <input
-                type="text"
-                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 text-black placeholder-black"
-                placeholder="Your last name"
+                className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg bg-black/40 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-200 placeholder-gray-400 text-sm md:text-base"
+                placeholder="Tuliskan nama lengkap anda"
               />
             </div>
           </div>
 
-          <div className="mt-6">
-            <label className="block mb-2 text-black font-semibold text-start text-sm">
+          <div className="mt-4 md:mt-6">
+            <label className="block mb-2 text-start text-black font-semibold text-sm md:text-base">
               Email *
             </label>
             <input
               type="email"
-              className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 text-black placeholder-black"
-              placeholder="you@example.com"
+              className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg bg-black/40 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-200 placeholder-gray-400 text-sm md:text-base"
+              placeholder="Tuliskan email anda"
             />
           </div>
 
-          <div className="mt-6">
-            <label className="block mb-2 text-black font-semibold text-start text-sm">
-              Message
+          <div className="mt-4 md:mt-6">
+            <label className="block mb-2 text-start text-black font-semibold text-sm md:text-base">
+              Pesan
             </label>
             <textarea
               rows="4"
-              className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 text-black placeholder-black resize-none"
-              placeholder="Write your message..."
+              className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg bg-black/40 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-200 placeholder-gray-400 resize-none text-sm md:text-base"
+              placeholder="Apa yang ingin anda kirimkan..."
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="mt-8 px-8 py-3 bg-orange-500 text-black font-semibold rounded-full hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-300/30"
+            className="w-full md:w-auto mt-6 md:mt-8 px-6 md:px-8 py-3 bg-blue-700 text-black font-semibold rounded-full hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-300/30 text-sm md:text-base"
           >
-            Send
+            Kirim Pesamnu
           </button>
         </form>
       </div>

@@ -16,7 +16,7 @@ export default function Portfolio() {
       className="relative py-20 text-white overflow-hidden"
     >
       {/* Background Gradient Layer */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-blue-500 opacity-90 -z-10"></div>
+      <div className="absolute inset-0 bg-blue-700 opacity-90 -z-10"></div>
 
       {/* Animated Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">

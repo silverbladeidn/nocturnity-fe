@@ -50,7 +50,7 @@ const Services = () => {
               onClick={() => setActiveService(srv.id)}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
                 activeService === srv.id
-                  ? "bg-purple-600 text-white shadow-lg scale-105"
+                  ? "bg-blue-600 text-white shadow-lg scale-105"
                   : "bg-gray-700 text-gray-300 hover:bg-gray-600"
               }`}
             >
@@ -79,18 +79,18 @@ const Services = () => {
               {/* Teks kanan */}
               <div className="text-left">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="text-purple-400">{active.icon}</div>
+                  <div className="text-blue-400">{active.icon}</div>
                   <div>
                     <h3 className="text-4xl font-bold relative pb-2 inline-block">
                       {active.title}
-                      <span className="absolute left-0 bottom-0 w-16 h-[3px] bg-purple-500 rounded-full"></span>
+                      <span className="absolute left-0 bottom-0 w-16 h-[3px] bg-blue-500 rounded-full"></span>
                     </h3>
                   </div>
                 </div>
                 <p className="text-gray-300 text-lg leading-relaxed mb-8">
                   {active.desc}
                 </p>
-                <button className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                   Pelajari Lebih Lanjut
                 </button>
               </div>
@@ -103,15 +103,15 @@ const Services = () => {
                   <div>
                     <h3 className="text-4xl font-bold relative pb-2 inline-block">
                       {active.title}
-                      <span className="absolute right-0 bottom-0 w-16 h-[3px] bg-purple-500 rounded-full"></span>
+                      <span className="absolute right-0 bottom-0 w-16 h-[3px] bg-blue-500 rounded-full"></span>
                     </h3>
                   </div>
-                  <div className="text-purple-400">{active.icon}</div>
+                  <div className="text-blue-400">{active.icon}</div>
                 </div>
                 <p className="text-gray-300 text-lg leading-relaxed mb-8">
                   {active.desc}
                 </p>
-                <button className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                   Pelajari Lebih Lanjut
                 </button>
               </div>
