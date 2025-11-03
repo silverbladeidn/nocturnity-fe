@@ -66,6 +66,14 @@ const Navbar = () => {
             </button>
           </li>
           <li>
+            <button
+              onClick={() => handleScrollTo("#aboutme")}
+              className="hover:text-blue-400 transition focus:outline-none focus:ring-0 focus-visible:ring-0 ring-0 outline-none"
+            >
+              About Me
+            </button>
+          </li>
+          <li>
             <Link
               to="/contact-us"
               className="px-6 lg:px-8 py-2 lg:py-3 bg-blue-600 rounded-full font-semibold hover:bg-blue-700 hover:text-white transition-colors focus:outline-none"

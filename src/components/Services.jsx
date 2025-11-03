@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Palette, Video, Globe } from "lucide-react";
+import { Palette, Video, MonitorPlay, Megaphone } from "lucide-react";
 import "./animation.css"; // tambahkan file CSS ini (lihat bawah)
 
 const servicesData = [
   {
     id: 1,
     icon: <Palette size={48} />,
-    title: "Desain Grafis",
-    desc: "Membuat desain visual kreatif untuk branding, promosi, dan media sosial yang menarik dan profesional.",
+    title: "Social Media Design",
+    desc: "Membuat desain visual kreatif untuk branding dan promosi via media sosial yang menarik dan profesional.",
     image:
       "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
   },
@@ -18,6 +18,22 @@ const servicesData = [
     desc: "Video profesional untuk kebutuhan iklan, konten, dan profil perusahaan dengan kualitas sinematik.",
     image:
       "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600&h=400&fit=crop",
+  },
+  {
+    id: 3,
+    icon: <MonitorPlay size={48} />,
+    title: "Content Strategy",
+    desc: "Perencanaan konten yang maksimal dapat mencapai tujuan bisnis yang lebih sempurna.",
+    image:
+      "https://images.unsplash.com/photo-1532622785990-d2c36a76f5a6?w=600&h=400&fit=crop",
+  },
+  {
+    id: 4,
+    icon: <Megaphone size={48} />,
+    title: "Branding Support",
+    desc: "Membantu pemasaran bisnis agar dapat menjadikan merek mereka sebagai highlight di pasaran.",
+    image:
+      "https://images.unsplash.com/photo-1613909207039-6b173b755cc1?w=600&h=400&fit=crop",
   },
 ];
 

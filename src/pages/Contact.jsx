@@ -4,29 +4,6 @@ import "../components/animation.css"; // animasi blob & fade
 import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const name = e.target[0].value;
-    const email = e.target[1].value;
-    const message = e.target[2].value;
-
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, message }),
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      alert("Pesan berhasil dikirim!");
-      e.target.reset();
-    } else {
-      alert("Gagal mengirim pesan.");
-    }
-  };
-
   return (
     <section
       id="contact"
@@ -95,51 +72,83 @@ const Contact = () => {
         </div>
 
         {/* Form Kontak */}
-        <form
-          onSubmit={handleSubmit}
-          className="w-full lg:w-1/2 bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-2xl animate-fadeSlideUp"
-        >
-          <div className="mt-4 md:mt-6">
-            <div>
-              <label className="block mb-2 text-black font-semibold text-sm text-start md:text-base">
-                Nama Lengkap Anda
+        <form className="w-full lg:w-[70%] ml-auto bg-white/10 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-2xl border border-white/20 animate-fadeSlideUp">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Kolom kiri: input */}
+            <div className="space-y-5">
+              <div>
+                <label className="block mb-2 text-black text-start font-semibold text-sm md:text-base">
+                  Nama
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 md:py-3 rounded-lg bg-white/20 border border-white/30 
+                     focus:outline-none focus:ring-2 focus:ring-blue-400 text-black placeholder-gray-300"
+                  placeholder="Tuliskan nama anda"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-black text-start font-semibold text-sm md:text-base">
+                  Domisili
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 md:py-3 rounded-lg bg-white/20 border border-white/30 
+                     focus:outline-none focus:ring-2 focus:ring-blue-400 text-black placeholder-gray-300"
+                  placeholder="Tuliskan domisili anda"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-black text-start font-semibold text-sm md:text-base">
+                  Jenis Usaha
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 md:py-3 rounded-lg bg-white/20 border border-white/30 
+                     focus:outline-none focus:ring-2 focus:ring-blue-400 text-black placeholder-gray-300"
+                  placeholder="Tuliskan jenis usaha anda"
+                />
+              </div>
+            </div>
+
+            {/* Kolom kanan: checkbox kategori */}
+            <div className="bg-white/20 rounded-xl border border-white/30 p-6 flex flex-col justify-center">
+              <label className="block mb-4 text-black font-semibold text-sm md:text-base">
+                Pilih Kategori
               </label>
-              <input
-                type="text"
-                className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg bg-black/40 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-200 placeholder-gray-400 text-sm md:text-base"
-                placeholder="Tuliskan nama lengkap anda"
-              />
+
+              <div className="flex flex-col gap-4 text-black text-sm md:text-base">
+                <label className="flex items-center gap-3">
+                  <input type="checkbox" className="w-4 h-4 accent-blue-500" />
+                  Growth
+                </label>
+
+                <label className="flex items-center gap-3">
+                  <input type="checkbox" className="w-4 h-4 accent-blue-500" />
+                  Starter (Discuss More)
+                </label>
+
+                <label className="flex items-center gap-3">
+                  <input type="checkbox" className="w-4 h-4 accent-blue-500" />
+                  Scaleup
+                </label>
+              </div>
             </div>
           </div>
 
-          <div className="mt-4 md:mt-6">
-            <label className="block mb-2 text-start text-black font-semibold text-sm md:text-base">
-              Email *
-            </label>
-            <input
-              type="email"
-              className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg bg-black/40 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-200 placeholder-gray-400 text-sm md:text-base"
-              placeholder="Tuliskan email anda"
-            />
+          {/* Tombol submit */}
+          <div className="flex justify-center mt-8">
+            <button
+              type="submit"
+              className="px-8 py-3 bg-blue-300  text-black 
+                 font-semibold rounded-full hover:bg-blue-500
+                 transition-all shadow-lg hover:shadow-blue-400/40"
+            >
+              Kirim Data
+            </button>
           </div>
-
-          <div className="mt-4 md:mt-6">
-            <label className="block mb-2 text-start text-black font-semibold text-sm md:text-base">
-              Pesan
-            </label>
-            <textarea
-              rows="4"
-              className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg bg-black/40 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-200 placeholder-gray-400 resize-none text-sm md:text-base"
-              placeholder="Apa yang ingin anda kirimkan..."
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full md:w-auto mt-6 md:mt-8 px-6 md:px-8 py-3 bg-blue-700 text-white font-semibold rounded-full hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-300/30 text-sm md:text-base"
-          >
-            Kirim Pesamnu
-          </button>
         </form>
       </div>
     </section>
